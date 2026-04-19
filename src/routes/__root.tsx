@@ -37,6 +37,12 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { property: "og:title", content: "Civicom Aid — Community-Led Development in East Africa" },
+      { name: "twitter:title", content: "Civicom Aid — Community-Led Development in East Africa" },
+      { property: "og:description", content: "Civicom Aid works across East Africa with community-designed, community-led programs helping ultra-poor households move out of extreme poverty." },
+      { name: "twitter:description", content: "Civicom Aid works across East Africa with community-designed, community-led programs helping ultra-poor households move out of extreme poverty." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d3b3670b-2551-40b1-b926-c9181ecbe871/id-preview-861b3c95--1783d8a0-c5fc-4965-a992-1ce7a012c5ff.lovable.app-1776186023105.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d3b3670b-2551-40b1-b926-c9181ecbe871/id-preview-861b3c95--1783d8a0-c5fc-4965-a992-1ce7a012c5ff.lovable.app-1776186023105.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
