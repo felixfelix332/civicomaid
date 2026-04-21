@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ArrowRight, Users, Sprout, GraduationCap, Heart } from "lucide-react";
-import heroCommunity from "@/assets/hero-community.jpg";
+import heroCommunity from "@/assets/IMG_20190312_105602.jpg";
 import programFarming from "@/assets/program-farming.jpg";
 import programBusiness from "@/assets/program-business.jpg";
 import programChild from "@/assets/program-child.jpg";
