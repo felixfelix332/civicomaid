@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProgramsAgricultureRouteImport } from './routes/programs/agriculture'
+import { Route as ProgramsMicroBusinessesRouteImport } from './routes/programs/micro-businesses'
+import { Route as ProgramsEducationRouteImport } from './routes/programs/education'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -24,30 +26,50 @@ const ProgramsAgricultureRoute = ProgramsAgricultureRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 
+const ProgramsMicroBusinessesRoute = ProgramsMicroBusinessesRouteImport.update({
+  id: '/programs/micro-businesses',
+  path: '/programs/micro-businesses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const ProgramsEducationRoute = ProgramsEducationRouteImport.update({
+  id: '/programs/education',
+  path: '/programs/education',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/programs/agriculture': typeof ProgramsAgricultureRoute
+  '/programs/micro-businesses': typeof ProgramsMicroBusinessesRoute
+  '/programs/education': typeof ProgramsEducationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/programs/agriculture': typeof ProgramsAgricultureRoute
+  '/programs/micro-businesses': typeof ProgramsMicroBusinessesRoute
+  '/programs/education': typeof ProgramsEducationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/programs/agriculture': typeof ProgramsAgricultureRoute
+  '/programs/micro-businesses': typeof ProgramsMicroBusinessesRoute
+  '/programs/education': typeof ProgramsEducationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/programs/agriculture'
+  fullPaths: '/' | '/programs/agriculture' | '/programs/micro-businesses' | '/programs/education'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/programs/agriculture'
-  id: '__root__' | '/' | '/programs/agriculture'
+  to: '/' | '/programs/agriculture' | '/programs/micro-businesses' | '/programs/education'
+  id: '__root__' | '/' | '/programs/agriculture' | '/programs/micro-businesses' | '/programs/education'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProgramsAgricultureRoute: typeof ProgramsAgricultureRoute
+  ProgramsMicroBusinessesRoute: typeof ProgramsMicroBusinessesRoute
+  ProgramsEducationRoute: typeof ProgramsEducationRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -66,12 +88,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsAgricultureRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/programs/micro-businesses': {
+      id: '/programs/micro-businesses'
+      path: '/programs/micro-businesses'
+      fullPath: '/programs/micro-businesses'
+      preLoaderRoute: typeof ProgramsMicroBusinessesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs/education': {
+      id: '/programs/education'
+      path: '/programs/education'
+      fullPath: '/programs/education'
+      preLoaderRoute: typeof ProgramsEducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProgramsAgricultureRoute: ProgramsAgricultureRoute,
+  ProgramsMicroBusinessesRoute: ProgramsMicroBusinessesRoute,
+  ProgramsEducationRoute: ProgramsEducationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

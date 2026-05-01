@@ -43,11 +43,11 @@ const programs = [
     href: "/programs/sponsor-a-child",
   },
   {
-    title: "Schools",
+    title: "Education",
     description: "Building classrooms, training teachers, and providing learning materials to bring out-of-school learners back and keep at-risk students enrolled.",
     image: programSchools,
     icon: GraduationCap,
-    href: "/programs/schools",
+    href: "/programs/education",
   },
 ];
 
