@@ -22,11 +22,11 @@ export const Route = createFileRoute("/")({
 
 const programs = [
   {
-    title: "Farming",
+    title: "Agriculture",
     description: "Equipping families with sustainable agriculture techniques, drought-resistant seeds, and irrigation systems to achieve year-round food security.",
     image: programFarming,
     icon: Sprout,
-    href: "/programs/farming",
+    href: "/programs/agriculture",
   },
   {
     title: "Micro Businesses",

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const programs = [
-  { name: "Farming", href: "/programs/farming", description: "Sustainable agriculture for food security" },
+  { name: "Agriculture", href: "/programs/agriculture", description: "Sustainable agriculture for food security" },
   { name: "Micro Businesses", href: "/programs/micro-businesses", description: "Economic empowerment through enterprise" },
   { name: "Sponsor a Child", href: "/programs/sponsor-a-child", description: "Education and care for every child" },
   { name: "Schools", href: "/programs/schools", description: "Keeping learners in the classroom" },

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProgramsAgricultureRouteImport } from './routes/programs/agriculture'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -17,26 +18,36 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 
+const ProgramsAgricultureRoute = ProgramsAgricultureRouteImport.update({
+  id: '/programs/agriculture',
+  path: '/programs/agriculture',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/programs/agriculture': typeof ProgramsAgricultureRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/programs/agriculture': typeof ProgramsAgricultureRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/programs/agriculture': typeof ProgramsAgricultureRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/programs/agriculture'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/programs/agriculture'
+  id: '__root__' | '/' | '/programs/agriculture'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProgramsAgricultureRoute: typeof ProgramsAgricultureRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +59,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/programs/agriculture': {
+      id: '/programs/agriculture'
+      path: '/programs/agriculture'
+      fullPath: '/programs/agriculture'
+      preLoaderRoute: typeof ProgramsAgricultureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProgramsAgricultureRoute: ProgramsAgricultureRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -14,7 +14,7 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-background/50 mb-4">Programs</h4>
             <ul className="space-y-2 text-sm text-background/70">
-              <li><a href="/programs/farming" className="hover:text-background transition-colors">Farming</a></li>
+              <li><a href="/programs/agriculture" className="hover:text-background transition-colors">Agriculture</a></li>
               <li><a href="/programs/micro-businesses" className="hover:text-background transition-colors">Micro Businesses</a></li>
               <li><a href="/programs/sponsor-a-child" className="hover:text-background transition-colors">Sponsor a Child</a></li>
               <li><a href="/programs/schools" className="hover:text-background transition-colors">Schools</a></li>
