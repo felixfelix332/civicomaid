@@ -32,7 +32,11 @@ export function Navbar() {
 
             {/* Programs Dropdown */}
             <div className="relative" onMouseEnter={() => setProgramsOpen(true)} onMouseLeave={() => setProgramsOpen(false)}>
-              <button className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              <button
+                type="button"
+                aria-expanded={programsOpen}
+                className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
                 Programs
                 <ChevronDown className="h-3.5 w-3.5" />
               </button>
@@ -69,7 +73,13 @@ export function Navbar() {
           </div>
 
           {/* Mobile toggle */}
-          <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button
+            type="button"
+            aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileOpen}
+            className="md:hidden text-foreground"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
@@ -82,12 +92,12 @@ export function Navbar() {
           <div className="space-y-1">
             <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Programs</div>
             {programs.map((p) => (
-              <a key={p.name} href={p.href} className="block pl-3 text-sm text-foreground py-1">{p.name}</a>
+              <a key={p.name} href={p.href} className="block pl-3 text-sm text-foreground py-1" onClick={() => setMobileOpen(false)}>{p.name}</a>
             ))}
           </div>
-          <a href="/about" className="block text-sm font-medium text-foreground">About</a>
-          <a href="/contact" className="block text-sm font-medium text-foreground">Contact</a>
-          <a href="/donate" className="block text-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground">Donate</a>
+          <a href="/about" className="block text-sm font-medium text-foreground" onClick={() => setMobileOpen(false)}>About</a>
+          <a href="/contact" className="block text-sm font-medium text-foreground" onClick={() => setMobileOpen(false)}>Contact</a>
+          <a href="/donate" className="block text-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground" onClick={() => setMobileOpen(false)}>Donate</a>
         </div>
       )}
     </nav>

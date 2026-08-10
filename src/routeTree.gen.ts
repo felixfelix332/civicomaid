@@ -9,10 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DonateRouteImport } from './routes/donate'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProgramsAgricultureRouteImport } from './routes/programs/agriculture'
 import { Route as ProgramsMicroBusinessesRouteImport } from './routes/programs/micro-businesses'
 import { Route as ProgramsEducationRouteImport } from './routes/programs/education'
+import { Route as ProgramsSponsorAChildRouteImport } from './routes/programs/sponsor-a-child'
+
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+const DonateRoute = DonateRouteImport.update({
+  id: '/donate',
+  path: '/donate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -38,38 +60,60 @@ const ProgramsEducationRoute = ProgramsEducationRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 
+const ProgramsSponsorAChildRoute = ProgramsSponsorAChildRouteImport.update({
+  id: '/programs/sponsor-a-child',
+  path: '/programs/sponsor-a-child',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
   '/programs/agriculture': typeof ProgramsAgricultureRoute
   '/programs/micro-businesses': typeof ProgramsMicroBusinessesRoute
   '/programs/education': typeof ProgramsEducationRoute
+  '/programs/sponsor-a-child': typeof ProgramsSponsorAChildRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
   '/programs/agriculture': typeof ProgramsAgricultureRoute
   '/programs/micro-businesses': typeof ProgramsMicroBusinessesRoute
   '/programs/education': typeof ProgramsEducationRoute
+  '/programs/sponsor-a-child': typeof ProgramsSponsorAChildRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
   '/programs/agriculture': typeof ProgramsAgricultureRoute
   '/programs/micro-businesses': typeof ProgramsMicroBusinessesRoute
   '/programs/education': typeof ProgramsEducationRoute
+  '/programs/sponsor-a-child': typeof ProgramsSponsorAChildRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/programs/agriculture' | '/programs/micro-businesses' | '/programs/education'
+  fullPaths: '/' | '/about' | '/contact' | '/donate' | '/programs/agriculture' | '/programs/micro-businesses' | '/programs/education' | '/programs/sponsor-a-child'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/programs/agriculture' | '/programs/micro-businesses' | '/programs/education'
-  id: '__root__' | '/' | '/programs/agriculture' | '/programs/micro-businesses' | '/programs/education'
+  to: '/' | '/about' | '/contact' | '/donate' | '/programs/agriculture' | '/programs/micro-businesses' | '/programs/education' | '/programs/sponsor-a-child'
+  id: '__root__' | '/' | '/about' | '/contact' | '/donate' | '/programs/agriculture' | '/programs/micro-businesses' | '/programs/education' | '/programs/sponsor-a-child'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  DonateRoute: typeof DonateRoute
   ProgramsAgricultureRoute: typeof ProgramsAgricultureRoute
   ProgramsMicroBusinessesRoute: typeof ProgramsMicroBusinessesRoute
   ProgramsEducationRoute: typeof ProgramsEducationRoute
+  ProgramsSponsorAChildRoute: typeof ProgramsSponsorAChildRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -79,6 +123,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donate': {
+      id: '/donate'
+      path: '/donate'
+      fullPath: '/donate'
+      preLoaderRoute: typeof DonateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/programs/agriculture': {
@@ -102,14 +167,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsEducationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/programs/sponsor-a-child': {
+      id: '/programs/sponsor-a-child'
+      path: '/programs/sponsor-a-child'
+      fullPath: '/programs/sponsor-a-child'
+      preLoaderRoute: typeof ProgramsSponsorAChildRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  DonateRoute: DonateRoute,
   ProgramsAgricultureRoute: ProgramsAgricultureRoute,
   ProgramsMicroBusinessesRoute: ProgramsMicroBusinessesRoute,
   ProgramsEducationRoute: ProgramsEducationRoute,
+  ProgramsSponsorAChildRoute: ProgramsSponsorAChildRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
