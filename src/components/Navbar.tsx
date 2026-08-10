@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import civicomAidLogo from "@/assets/civicom-aid-logo.jpg";
 
 const programs = [
   { name: "Agriculture", href: "/programs/agriculture", description: "Sustainable agriculture for food security" },
@@ -18,10 +19,14 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold tracking-tight text-foreground" style={{ fontFamily: 'var(--font-heading)' }}>
-              Civicom Aid
-            </span>
+          <Link to="/" className="flex items-center" aria-label="Civicom Aid home">
+            <img
+              src={civicomAidLogo}
+              alt="Civicom Aid"
+              width={447}
+              height={447}
+              className="h-12 w-12 object-contain"
+            />
           </Link>
 
           {/* Desktop Nav */}

@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import civicomAidLogo from "../assets/civicom-aid-logo.jpg";
 
 function NotFoundComponent() {
   return (
@@ -42,6 +43,8 @@ export const Route = createRootRoute({
       { name: "twitter:description", content: "Civicom Aid works across East Africa with community-designed, community-led programs helping ultra-poor households move out of extreme poverty." },
     ],
     links: [
+      { rel: "icon", type: "image/jpeg", href: civicomAidLogo },
+      { rel: "apple-touch-icon", href: civicomAidLogo },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

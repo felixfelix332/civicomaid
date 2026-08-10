@@ -1,12 +1,18 @@
+import civicomAidLogo from "@/assets/civicom-aid-logo.jpg";
+
 export function Footer() {
   return (
     <footer className="bg-foreground text-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-1">
-            <h3 className="text-lg font-bold tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
-              Civicom Aid
-            </h3>
+            <img
+              src={civicomAidLogo}
+              alt="Civicom Aid"
+              width={447}
+              height={447}
+              className="h-20 w-20 object-contain"
+            />
             <p className="mt-3 text-sm text-background/70 leading-relaxed">
               Community-designed. Community-led. Community-owned. Working across East Africa to build lasting change.
             </p>
